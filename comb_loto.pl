@@ -1,4 +1,5 @@
-permutation(L,[],L).
-permutation([T|Q],[T|L1],L2) :- permutation(Q,L1,L2).
-solution(0,L,[],L).
-solution(N,L,[T|L3],R) :- solution(N1,L2,L3,L4), permutation(L,L1,[T|L2]), append(L1,L4,R), N>0, N1 is N-1.
+permutation(A,[],A).
+permutation([P|D],[T|A1],A2) :- permutation(D, A1,A2).
+
+solution(0,A,[],A).
+solution(N,A,[P|A3],R) :- N>0, N1 is N-1, solution(N1,A2,A3,A4), permutation(A,A1,[P|A2]), append(A1,A4,R).
